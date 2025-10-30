@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seaton Sand’s Automotive Services  Biznesplan 5City</title>
+  <meta name="description" content="Biznesplan dla warsztatu Sandy Mechanic / Seaton Sand’s Automotive Services  FiveM (GTA V )." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* readability tweaks */
+    body{line-height:1.65}
+    p{margin:0 0 12px}
+    h3{margin:0 0 8px}
+    .panel{padding:20px}
+    .lead{font-size:19px}
+    .hero-logo{width:220px; max-width:60%; display:block; margin:10px 0 6px; filter: drop-shadow(0 0 14px rgba(60,225,255,.45))}
+    .brand-title{white-space:nowrap}
+  
+    :root{
+      --bg:#0b0f14;          /* główne tło */
+      --panel:#0f151c;       /* karty */
+      --muted:#b8c4d9;       /* jasny tekst */
+      --text:#e9f1ff;        /* główny tekst */
+      --accent:#3ce1ff;      /* neon niebieski */
+      --accent2:#ff3c7d;     /* neon róż */
+      --warn:#ffc33c;        /* akcent pustynny */
+      --ok:#46e18f;          /* akcent zielony */
+      --grid: 1200px;
+    }
+    *{box-sizing:border-box}
+    /* DODANE: neonowe linie w tle (subtelny grid) */
+    html,body{margin:0; background:
+      /* ciemny, warsztatowy klimat zamiast linii */
+      radial-gradient(1200px 800px at 50% -20%, #162230 0%, #0b0f14 60%),
+      radial-gradient(800px 600px at 10% 110%, #0a121b 0%, transparent 60%),
+      linear-gradient(180deg, #0b0f14 0%, #0a0f14 100%);
+      color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif; position:relative;}
+    
+    
+    
+    /* efekt oświetlenia jak w garażu  subtelna smuga */
+    body::before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+      background:linear-gradient(100deg, rgba(60,225,255,.00) 0%, rgba(60,225,255,.06) 35%, rgba(60,225,255,.18) 50%, rgba(60,225,255,.06) 65%, rgba(60,225,255,.00) 100%);
+      mix-blend-mode:screen; opacity:.20; filter: blur(2px);
+      animation:sweep 12s ease-in-out infinite alternate}
+
+    /* pył/kurz w powietrzu  bardzo delikatny */
+    body::after{content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+      background:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.08) 0 60%, transparent 61%),
+        radial-gradient(1.5px 1.5px at 55% 60%, rgba(255,255,255,.06) 0 60%, transparent 61%),
+        radial-gradient(1.8px 1.8px at 80% 25%, rgba(255,255,255,.05) 0 60%, transparent 61%),
+        radial-gradient(1.2px 1.2px at 35% 80%, rgba(255,255,255,.05) 0 60%, transparent 61%);
+      opacity:.12; filter:blur(.4px);
+      animation:float 40s linear infinite}
+
+    @keyframes sweep{0%{transform:translateX(-8%)}100%{transform:translateX(8%)}}
+    @keyframes float{0%{background-position:0 0,0 0,0 0,0 0}100%{background-position:40px -20px,-20px 25px,30px 40px,-30px -30px}}
+
+    /* dostępność */
+    @media (prefers-reduced-motion: reduce){
+      body::before, body::after{animation:none}
+    }
+
+    /* podnieś treść ponad tło */
+    header, nav, section, footer{position:relative; z-index:2}
+
+    /* szanuj ustawienia dostępności */
+    @media (prefers-reduced-motion: reduce){
+      body::before, body::after{animation:none}
+    }
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(100%, var(--grid)); margin:0 auto; padding:0 20px}
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:linear-gradient(180deg, rgba(12,16,22,.9), rgba(12,16,22,.6)); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand-logo {
+  width:56px;
+  height:auto;
+  filter: drop-shadow(0 0 16px rgba(60,225,255,.65));
+  border-radius:8px;
+}
+    .brand-title{font-family:"Bebas Neue", system-ui; font-size:24px; letter-spacing:.06em; text-shadow: 0 0 12px rgba(60,225,255,.55), 0 0 24px rgba(255,60,125,.25)}
+    .nav a{opacity:.9}
+    .navlinks{display:flex; flex-wrap:wrap; gap:14px}
+    .navlinks a{padding:8px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.06); color:var(--warn); font-weight:600; text-shadow:0 0 6px rgba(255,195,60,.55)}
+    .navlinks a:hover{background:rgba(255,195,60,.12); color:var(--warn); text-shadow:0 0 10px rgba(255,195,60,.75)}
+
+    /* HERO */
+    .hero{position:relative; overflow:hidden;}
+    .hero-inner{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; padding:80px 0 48px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(60,225,255,.08); border:1px solid rgba(60,225,255,.3); color:var(--accent)}
+    .title{font-family:"Bebas Neue"; font-size:clamp(40px, 8vw, 88px); line-height:.95; margin:10px 0 12px; letter-spacing:.02em; text-shadow: 0 0 22px rgba(60,225,255,.35), 0 0 38px rgba(255,60,125,.15)}
+    .lead{font-size:18px; color:var(--muted)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
+    .btn{padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(60,225,255,.15), rgba(60,225,255,.04)); color:var(--text); font-weight:600}
+    .btn.primary{background:linear-gradient(180deg, rgba(60,225,255,.35), rgba(60,225,255,.08)); box-shadow:0 0 18px rgba(60,225,255,.35)}
+
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:20px; padding:20px; box-shadow: 0 10px 40px rgba(0,0,0,.4)}
+    .hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    .metric{padding:14px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06)}
+    .metric h4{margin:0 0 6px; font-size:13px; color:var(--muted)}
+    .metric .big{font-family:"Bebas Neue"; font-size:42px; letter-spacing:.02em}
+
+    section{padding:42px 0}
+    h2{font-family:"Bebas Neue"; font-size:42px; letter-spacing:.02em; margin:0 0 10px}
+    .sub{color:var(--muted); margin:0 0 18px}
+
+    .cards{display:grid; grid-template-columns:repeat(12, 1fr); gap:16px}
+    .card{grid-column: span 4; min-height:140px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:16px}
+    .card h3{font-size:18px; margin:0 0 6px}
+    .card p{color:var(--muted); margin:0}
+
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.08)}
+
+    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:24px}
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
+
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:16px}
+    .swot{display:grid; grid-template-columns: repeat(4, 1fr); gap:16px}
+    .swot .panel h3{margin-top:0}
+    .ul{margin:8px 0 0 18px; color:var(--muted)}
+
+    .kpis{display:grid; grid-template-columns: repeat(4, 1fr); gap:16px}
+    .kpi{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:16px}
+    .kpi .big{font-family:"Bebas Neue"; font-size:44px}
+    .kpi small{color:var(--muted)}
+
+    .timeline{position:relative; padding-left:20px}
+    .timeline::before{content:""; position:absolute; left:6px; top:0; bottom:0; width:2px; background:linear-gradient(var(--accent), transparent)}
+    .milestone{position:relative; margin:12px 0; padding-left:16px}
+    .milestone::before{content:""; position:absolute; left:-1px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px rgba(60,225,255,.8)}
+
+    /* Footer */
+    footer{padding:24px 0 60px; color:#93a2bb}
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-inner{grid-template-columns: 1fr; padding-top:48px}
+      .cards .card{grid-column: span 12}
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .swot{grid-template-columns:1fr 1fr}
+      .kpis{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 560px){
+      .navlinks{display:none}
+      .title{font-size:56px}
+      .kpis{grid-template-columns:1fr}
+      .swot{grid-template-columns:1fr}
+    }
+    /* canvas z gwiazdami */
+    #sky{position:fixed; inset:0; width:100%; height:100%; z-index:1; pointer-events:none;}
+    /* lekka winieta nad niebem dla kontrastu treści */
+    .vignette{position:fixed; inset:0; z-index:1; pointer-events:none; background:radial-gradient(120% 120% at 50% 20%, transparent 0%, transparent 60%, rgba(0,0,0,.25) 100%)}
+  </style>
+</head>
+<body>
+  <!-- realistyczne, subtelne niebo ze spadającymi gwiazdami -->
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="images/logo.png" alt="Seaton Sand’s Automotive Services" class="brand-logo" />
+        <div class="brand-title">Sandy Mechanic | Seaton Sand’s Automotive Services</div>
+      </div>
+      <div class="navlinks">
+        <a href="#o-nas">O nas</a>
+        <a href="#uslugi">Usługi</a>
+        <a href="#plan">Plan</a>
+        <a href="#swot">SWOT</a>
+        <a href="#finanse">Finanse</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="badge"><span>🚗</span><span>Biznesplan 5City</span></div>
+        <img class="hero-logo" src="images/logo.png" alt="Logo Sandy Mechanic"/>
+        <h1 class="title">Seaton Sand’s Automotive Services<br/><span style="color:var(--accent)">Serce Blaine County</span></h1>
+        <p class="lead">Mechanik samochodowy w Sandy Shores. Szybkie naprawy, tuning, obsługa 24/7 i mobilna pomoc. Projekt przygotowany przez KTM jako biznesplan do akceptacji przez administrację serwera 5City East.</p>
+        <div class="cta">
+          <a class="btn primary" href="#kontakt">Aplikuj / Kontakt</a>
+          <a class="btn primary" href="#trailer">Zobacz trailer</a>
+        </div>
+        <div class="kpis" style="margin-top:16px">
+          <div class="kpi"><div class="big">24/7</div><small>Dostępność serwisowa</small></div>
+          <div class="kpi"><div class="big">3‑5 min</div><small>Średni czas reakcji w Sandy</small></div>
+          <div class="kpi"><div class="big">+4</div><small>Stanowiska serwisowe (docelowo)</small></div>
+          
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="pill" style="margin-bottom:10px">📌 Kryteria</div>
+        <div class="hero-grid" style="grid-template-columns: repeat(3, 1fr); text-align:center">
+          <div class="metric"><h4>Zakres</h4><div class="big" style="font-size:32px; display:flex; flex-direction:column; gap:18px; align-items:center;">
+  <div><span style="font-size:36px; line-height:1; display:block;">🔧</span><span>MECHANIKA</span></div>
+  <div><span style="font-size:36px; line-height:1; display:block;">✨</span><span>TUNING</span></div>
+  <div><span style="font-size:36px; line-height:1; display:block;">🚚</span><span>HOLOWNIK</span></div>
+</div></div>
+          <div class="metric"><h4>Atuty</h4><div class="big" style="font-size:32px; display:flex; flex-direction:column; gap:18px; align-items:center;">
+  <div><span style="font-size:36px; line-height:1; display:block;">⚡</span><span>SZYBKOŚĆ</span></div>
+  <div><span style="font-size:36px; line-height:1; display:block;">✅</span><span>JAKOŚĆ</span></div>
+  <div><span style="font-size:36px; line-height:1; display:block;">🤝</span><span>WSPÓŁPRACA</span></div>
+</div></div>
+          <div class="metric"><h4>Wsparcie</h4><div class="big" style="font-size:32px; display:flex; flex-direction:column; gap:18px; align-items:center;"><div><span style="font-size:36px; line-height:1; display:block;">🚨</span><span>MOBILNY SERWIS</span></div></div></div>
+        </div>
+        <div class="metric" style="margin-top:18px; text-align:center"><h4>Lokalizacja</h4><div class="big" style="font-size:28px">📍 Nowe Sandy Shores</div></div>
+        <div style="margin-top:18px; text-align:center">
+          <img src="images/warsztat.jpg" alt="Warsztat Sandy Shores" style="width:80%; max-width:720px; border-radius:14px; border:1px solid rgba(255,255,255,.08); box-shadow:0 0 22px rgba(60,225,255,.25)"/>
+        </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- O NAS -->
+  <section id="o-nas" class="container">
+    <h2>Kim jesteśmy</h2>
+    <p class="sub">„Sandy Shores to przyszłość motoryzacji w Blaine County.”</p>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Lider operacyjny Marcelo Kweros</h3>
+<img src="images/marcelo.jpg" alt="Marcelo Kweros" style="width:100%; max-width:320px; display:block; margin:0 auto 12px; border-radius:16px; border:1px solid rgba(255,255,255,.1)"/>
+<p style="font-style:italic; text-align:center; margin-bottom:14px; color:var(--muted)">„Każdy pojazd ma drugą szansę. Ludzie też.”</p>
+        <p>Marcelo Kweros to człowiek, który przeszedł drogę od strat i chaosu do odpowiedzialności i profesjonalizmu. Dorastał w cieniu przestępczości Neapolu, ale swoją przyszłość postanowił związać z motoryzacją i ciężką pracą. Z czasem zdobył doświadczenie jako mechanik, ale również jako osoba zarządzająca ludźmi i biznesami.
+        <p>Oprócz silnego zaplecza technicznego Marcelo ma naturalną zdolność do budowania relacji i atmosfery w miejscu pracy. Jako lider potrafi słuchać, rozwiązywać konflikty i motywować innych  co w realiach warsztatu jest równie ważne, co klucz francuski.</p>
+        <p>Teraz stawia wszystko na stworzenie solidnego warsztatu w Sandy Shores i budowę prawdziwej marki. Marcelo wierzy, że każdy pojazd zasługuje na drugą szansę  tak samo jak człowiek, który nim jeździ. Jego celem jest, aby Sandy Mechanic stał się synonimem uczciwości, szybkiej pomocy i stałej obecności w Blaine County.</p>
+        <p>Marcelo i Jacob tworzą zgrany duet, w którym jeden odpowiada za ludzi i technikę, a drugi za operacje i logistykę. To połączenie jest fundamentem tej firmy.</p>
+        <ul class="ul">
+          <li>Doświadczenie jako mechanik i w zarządzaniu biznesem.</li>
+          <li>Umiejętność podejmowania decyzji pod presją.</li>
+          <li>Lojalny wobec swojego zespołu i klientów.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Współzałożyciel Jacob Ferres</h3>
+<img src="images/jacob.jpg" alt="Jacob Ferres" style="width:100%; max-width:320px; display:block; margin:0 auto 12px; border-radius:16px; border:1px solid rgba(255,255,255,.1)">
+<p style="font-style:italic; text-align:center; margin-bottom:14px; color:var(--muted)">„Przetrwałem chaos, teraz buduję przyszłość.”</p>
+        <p>Jacob Ferres to człowiek, który przeszedł przez piekło i wrócił silniejszy. Po latach pracy przy przestępczych operacjach kartelowych i brutalnych starciach, wybrał nową drogę  legalną, stabilną i pełną ambicji. Doświadczył świata, w którym błędna decyzja oznacza koniec. To nauczyło go zimnej precyzji, strategicznego myślenia i niezłomnej odporności psychicznej.</p>
+        <p>W Stanach Zjednoczonych zaczął od nowa. Ustabilizował życie, odkrył pasję do motoryzacji i dołączył do projektu Sandy Mechanic jako współzałożyciel. Jego wiedza o logistyce i organizacji, a także instynkt przywódcy sprawiają, że warsztat rozwija się w dobrym kierunku.</p>
+        <p>Jacob jest dowodem na to, że nawet najtrudniejsza przeszłość potrafi stać się fundamentem przyszłego sukcesu.</p>
+        <ul class="ul">
+          <li>Strategiczne podejście do rozwoju firmy.</li>
+          <li>Doświadczenie w zarządzaniu operacjami.</li>
+          <li>Wysoka odporność psychiczna i skuteczność w działaniu.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:20px">
+      <h3>🏜️ Dlaczego Sandy Shores?</h3>
+      <p>Sandy Shores to miejsce, gdzie większość ludzi wolałoby wybrać się do nas, niż do Miasta. My jesteśmy na miejscu. Znamy teren, znamy ludzi i wiemy, czego tu brakuje.</p>
+      <p>To nie tylko lokalizacja  to przewaga konkurencyjna.</p>
+      <ul class="ul">
+        <li>Brak kolejek jak w Los Santos  szybciej, wygodniej i czyściej dla klientów.</li>
+        <li>Idealne miejsce pod rozwój aut off‑road i użytkowych, a także tych z wyższej półki.</li>
+        <li>Szybki dojazd do zdarzeń na pustyni i autostradzie.</li>
+        <li>Silna lokalna marka „Sandy Mechanic”, znana w całym Blaine County.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- USŁUGI -->
+  <section id="uslugi" class="container">
+    <h2>Usługi</h2>
+    <!-- USUNIĘTO opis pod nagłówkiem zgodnie z prośbą -->
+    <div class="cards">
+      <div class="card"><h3>Naprawy mechaniczne</h3><p>Silnik, hamulce, płyny, wnętrze, główne naprawy pojazdów itp.</p></div>
+      <div class="card"><h3>Tuning i customy</h3><p>Body kits, zawieszenie, felgi, kolorystyka oraz wszystkie wizualne zmiany, takie jak spojlery, maski, grille itp.</p></div>
+      <div class="card"><h3>Diagnostyka</h3><p>Przeglądy, testy drogowe.</p></div>
+      <div class="card"><h3>Serwis mobilny</h3><p>Dojeżdżamy na wezwanie, laweta partnerska.</p></div>
+      <div class="card"><h3>Obsługa wydarzeń</h3><p>Organizowanie eventów (wyścigi, rajdy, zloty samochodowe).</p></div>
+      <div class="card"><h3>Program lojalnościowy</h3><p>Zniżki cykliczne i pakiety serwisowe dla stałych klientów.</p></div>
+    </div>
+  </section>
+
+  <!-- GALERIA POJAZDÓW / REALIZACJI -->
+  <section id="galeria" class="container">
+    <h2>Galeria pojazdów i realizacji</h2>
+    <p class="sub">Kilka przykładowych pojazdów które udało nam się naprawić i ztuningować.</p>
+    <style>
+      .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:10px}
+      .gallery img{width:100%; height:auto; display:block; border-radius:12px; border:1px solid rgba(255,255,255,.06); filter:saturate(1.05) contrast(1.05)}
+      .gallery a{grid-column:span 4; position:relative; overflow:hidden}
+      .gallery a::after{content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 0 rgba(60,225,255,.0); transition:.25s}
+      .gallery a:hover::after{box-shadow:inset 0 0 0 2px rgba(60,225,255,.5)}
+    </style>
+    <div class="gallery">
+      <a href="images/auto1.jpg" target="_blank"><img loading="lazy" src="images/auto1.jpg" alt="Realizacja 1"></a>
+      <a href="images/auto2.jpg" target="_blank"><img loading="lazy" src="images/auto2.jpg" alt="Realizacja 2"></a>
+      <a href="images/auto3.jpg" target="_blank"><img loading="lazy" src="images/auto3.jpg" alt="Realizacja 3"></a>
+      <a href="images/auto4.jpg" target="_blank"><img loading="lazy" src="images/auto4.jpg" alt="Realizacja 4"></a>
+      <a href="images/auto5.jpg" target="_blank"><img loading="lazy" src="images/auto5.jpg" alt="Realizacja 5"></a>
+      <a href="images/auto6.jpg" target="_blank"><img loading="lazy" src="images/auto6.jpg" alt="Realizacja 6"></a>
+    </div>
+    
+  </section>
+
+  <!-- PLAN BIZNESOWY / ORGANIZACJA -->
+  <section id="plan" class="container">
+    <h2>Plan operacyjny i rozwój</h2>
+    <p class="sub">Struktura, harmonogram i standardy obsługi  gotowe pod akceptację administracji.</p>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Organizacja</h3>
+        <ul class="ul">
+          <li>CEO / Szef warsztatu: Marcelo Kweros.<br/>Współzałożyciel: Jacob Ferres.</li>
+          <li>Start: 6 mechaników.</li>
+          <li>Docelowo: 5+ stanowisk serwisowych oraz struktura: Menadżer, Starszy Mechanik, Mechanik, Młodszy Mechanik, Praktykant.</li>
+          <li>Cotygodniowe zamówienia części i materiałów.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Harmonogram (roadmap)</h3>
+        <div class="timeline">
+          <div class="milestone"><strong>Tydzień 1:</strong> Otwarcie i praca zespołu startowego (6 mechaników).</div>
+          <div class="milestone"><strong>Tydzień 2–3:</strong> Rekrutacja praktykantów + rozpisanie grafików.</div>
+          <div class="milestone"><strong>Miesiąc 1:</strong> Ustalenie struktur awansów i ról.</div>
+          <div class="milestone"><strong>Miesiąc 2:</strong> Zatrudnienie kierowcy lawety i wdrożenie menadżera zmiany.</div>
+          <div class="milestone"><strong>Miesiąc 3:</strong> Rozszerzenie o 5. stanowisko serwisowe + program lojalnościowy.</div>
+        </div>
+          <div class="milestone"><strong>Tydzień 2–3:</strong> Marketing  (ogłoszenia, Discord), współpraca z lawetą.</div>
+          <div class="milestone"><strong>Miesiąc 1:</strong> Uruchomienie serwisu mobilnego i obsługi eventów.</div>
+          <div class="milestone"><strong>Miesiąc 2:</strong> Rozszerzenie tuningu, testy pakietów performance (zgodne z regulaminem).</div>
+          <div class="milestone"><strong>Miesiąc 3:</strong> 4. stanowisko serwisowe i program lojalnościowy.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWOT -->
+  <section id="swot" class="container">
+    <h2>Analiza SWOT</h2>
+    <div class="swot">
+      <div class="panel">
+        <h3>Strengths</h3>
+        <ul class="ul">
+          <li>Silna marka lokalna i klimat „pustynnego” warsztatu.</li>
+          <li>Elastyczne godziny i szybka reakcja</li>
+          <li>Jakość i transparentny proces obsługi .</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Weaknesses</h3>
+        <ul class="ul">
+          <li>Mniejszy ruch niż w LS  potrzebny marketing.</li>
+          <li>Początkowo ograniczone zasoby kadrowe.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Opportunities</h3>
+        <ul class="ul">
+          <li>Obsługa eventów  i grup off‑road.</li>
+          <li>Pakiety serwisowe i lojalnościowe.</li>
+          <li>Kooperacje z firmami (myjnia, restauracja)</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Threats</h3>
+        <ul class="ul">
+          <li>Konkurencja z LS obniżająca ceny.</li>
+          
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANSE () -->
+  <section id="finanse" class="container">
+    <h2>Plan finansowy</h2>
+    <p class="sub">Wartości orientacyjne  do dostosowania pod ekonomię miasta.</p>
+    <div class="grid-3">
+      <div class="panel"><h3>Startowe koszty</h3>
+        <ul class="ul">
+          <li>Wyposażenie i narzędzia (jeżeli ich nie będzie): 25–40k $</li>
+          <li>Marketing i oznakowanie: 5k $</li>
+          <li>Szkolenia i rekrutacja: 3k $</li>
+        </ul>
+      </div>
+      <div class="panel"><h3>Przychody (mies.)</h3>
+        <ul class="ul">
+          <li>Naprawy i diagnostyka: 25–35k $</li>
+          <li>Tuning i customy: 20–30k $</li>
+          <li>Serwis mobilny / eventy: 10–15k $</li>
+        </ul>
+      </div>
+      <div class="panel"><h3>Punkt rentowności</h3>
+        <ul class="ul">
+          <li>~50 klientów / mies. (średni koszyk ok. 1.5k $)</li>
+          <li>Wyższa marża usług tuningu wspiera utrzymanie rentowności.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAILER (placeholder) -->
+  <section id="trailer" class="container">
+    <h2>Trailer interioru (Prompt‑Mods)</h2>
+    <p class="sub">Poniżej osadzony oficjalny trailer interioru od <a href="https://store.prompt-mods.com" target="_blank" rel="noopener noreferrer">store.prompt-mods.com</a>.</p>
+    <div class="panel" style="aspect-ratio:16/9; overflow:hidden">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rL9EzhSOs1o" title="Trailer interioru" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="container">
+    <h2>Kontakt / Wniosek</h2>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Dane Firmy</h3>
+        <p><strong>Nazwa:</strong> Seaton Sand’s Automotive Services (Sandy Mechanic)<br/>
+          <strong>Lokalizacja:</strong> Sandy Shores.<br/>
+          <strong>Telefon:</strong> 0016 (jak będzie to możliwe)<br/>
+          <strong>Discord:</strong> jeżeli będzie potrzebny to zrobimy.</p>
+        <p>Jesteśmy gotowi na rozmowę z administracją i dopasowanie oferty do zasad serwera.</p>
+      </div>
+      <div class="panel">
+        <h3>Dlaczego warto nas zaakceptować</h3>
+        <ul class="ul">
+          <li>Stała aktywność + integracja społeczności.</li>
+          <li>Profesjonalna obsługa i przejrzyste procedury.</li>
+          <li>Gotowy marketing.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container">
+    <div class="pill">Made for FiveM  • Biznesplan  Seaton Sand’s</div>
+  </footer>
+
+  <script>
+    // === Realistyczne niebo: gwiazdy + sporadyczne spadające meteory ===
+    (function(){
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const canvas = document.getElementById('sky');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let W=0,H=0,dpr=1,stars=[],meteors=[]; // meteors: spadające gwiazdy
+
+      function resize(){
+        dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        W = Math.floor(window.innerWidth);
+        H = Math.floor(window.innerHeight);
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width = W+'px';
+        canvas.style.height = H+'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+        initStars();
+      }
+
+      function rand(min,max){return Math.random()*(max-min)+min}
+      function initStars(){
+        const density = Math.round((W*H)/9000); // rzadko, nie wszędzie
+        stars = new Array(Math.min(140, density)).fill(0).map(()=>({
+          x: Math.random()*W,
+          y: Math.random()*H*0.7, // górne 70% ekranu, żeby nie wszędzie
+          r: rand(.2,.9),
+          base: rand(.25,.6),
+          amp: rand(.05,.25),
+          spd: rand(.5,1.2),
+          phi: rand(0,Math.PI*2)
+        }));
+      }
+
+      function spawnMeteor(){
+        // Losowy start w górnej/lejwej części, lot po skosie w dół
+        const startEdge = Math.random()<0.6 ? 'top' : 'left';
+        let x = startEdge==='top' ? rand(0, W*0.7) : -20;
+        let y = startEdge==='top' ? -20 : rand(0, H*0.4);
+        const speed = rand(400, 780); // px/s
+        const angle = rand(Math.PI*0.15, Math.PI*0.35); // około 27°–63°
+        const vx = Math.cos(angle)*speed/60;
+        const vy = Math.sin(angle)*speed/60;
+        meteors.push({x,y,vx,vy,life:0,maxLife:rand(40,70),len:rand(60,140)});
+      }
+
+      let lastSpawn = 0;
+      function tick(t){
+        ctx.clearRect(0,0,W,H);
+        // gwiazdy (twinkle)
+        for(const s of stars){
+          s.phi += 0.02*s.spd;
+          const a = s.base + Math.sin(s.phi)*s.amp;
+          ctx.globalAlpha = Math.max(0, Math.min(1, a));
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+          ctx.fillStyle = 'rgba(235,245,255,1)';
+          ctx.shadowBlur = 2; ctx.shadowColor = 'rgba(180,220,255,.6)';
+          ctx.fill();
+          ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+        }
+
+        // meteory (spadające gwiazdy)
+        for(let i=meteors.length-1;i>=0;i--){
+          const m = meteors[i];
+          m.x += m.vx;
+          m.y += m.vy;
+          m.life++;
+          // rysuj smugę
+          const tailX = m.x - m.vx* (m.len/Math.hypot(m.vx,m.vy));
+          const tailY = m.y - m.vy* (m.len/Math.hypot(m.vx,m.vy));
+          const grad = ctx.createLinearGradient(m.x, m.y, tailX, tailY);
+          grad.addColorStop(0,'rgba(255,255,255,0.95)');
+          grad.addColorStop(0.2,'rgba(210,235,255,0.6)');
+          grad.addColorStop(1,'rgba(210,235,255,0)');
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(m.x, m.y);
+          ctx.lineTo(tailX, tailY);
+          ctx.stroke();
+
+          if(m.life>m.maxLife || m.x>W+50 || m.y>H+50){
+            meteors.splice(i,1);
+          }
+        }
+
+        // sporadyczne spawny  nie wszędzie i nie często
+        if(!reduceMotion){
+          if(t - lastSpawn > rand(1600, 4800) && meteors.length<2){
+            spawnMeteor();
+            lastSpawn = t;
+          }
+          requestAnimationFrame(tick);
+        }
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+      // rysunek statyczny przy reduced motion
+      if(reduceMotion){
+        // tylko gwiazdy delikatnie widoczne bez animacji
+        ctx.clearRect(0,0,W,H);
+        for(const s of stars){
+          ctx.globalAlpha = s.base;
+          ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2); ctx.fillStyle = 'rgba(235,245,255,1)'; ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }else{
+        requestAnimationFrame(tick);
+      }
+    })();
+
+    // === Smooth scroll dla kotwic ===
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
